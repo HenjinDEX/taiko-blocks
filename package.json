@@ -1,0 +1,15 @@
+{
+  "name": "taiko-blocks",
+  "license": "UNLICENSED",
+  "scripts": {
+    "codegen": "graph codegen",
+    "build": "graph build",
+    "deploy": "graph deploy --node https://graph.henjin.xyz/ --ipfs https://ipfs.henjin.xyz henjin/blocks subgraph.yaml",
+    "create": "graph create henjin/blocks --node https://graph.henjin.xyz/"
+  },
+  "dependencies": {
+    "@graphprotocol/graph-cli": "0.67.4",
+    "@graphprotocol/graph-ts": "0.32.0"
+  },
+  "packageManager": "yarn@1.22.19"
+}

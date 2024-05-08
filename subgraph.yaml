@@ -1,0 +1,25 @@
+specVersion: 0.0.4
+description: Indexing all Taiko Block data
+repository: https://github.com/henjinxyz/taiko-blocks
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum/contract
+    name: ConverterRegistryContract
+    network: taiko-hekla-testnet
+    source:
+      address: "0x0ddff327ddf7fe838e3e63d02001ef23ad1ede8e"
+      abi: ConverterRegistryContract
+      startBlock: 20000
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.6
+      language: wasm/assemblyscript
+      entities:
+        - ConverterAddition
+      abis:
+        - name: ConverterRegistryContract
+          file: ./abis/ConverterRegistryContract.json
+      blockHandlers:
+        - handler: handleBlock
+      file: ./src/mappings/blocks.ts
